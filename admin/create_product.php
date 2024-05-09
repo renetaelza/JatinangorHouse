@@ -11,53 +11,39 @@ if (!isset($_SESSION['admin_logged_in'])) {
 <?php
 if (isset($_POST['create_btn'])) {
     $product_name = $_POST['product_name'];
-    $product_brand = $_POST['product_brand'];
     $product_category = $_POST['product_category'];
-    $product_criteria = $_POST['product_criteria'];
-    $product_color = $_POST['product_color'];
     $product_description = $_POST['product_description'];
     $product_price = $_POST['product_price'];
-    $product_special_offer = $_POST['product_special_offer'];
 
     // This is image file
-    $product_image1 = $_FILES['product_image1']['tmp_name'];
-    $product_image2 = $_FILES['product_image2']['tmp_name'];
-    $product_image3 = $_FILES['product_image3']['tmp_name'];
-    $product_image4 = $_FILES['product_image4']['tmp_name'];
+    $product_image = $_FILES['product_image']['tmp_name'];
+    // $product_image2 = $_FILES['product_image2']['tmp_name'];
+    // $product_image3 = $_FILES['product_image3']['tmp_name'];
+    // $product_image4 = $_FILES['product_image4']['tmp_name'];
 
     // Images name
     $image_name1 = str_replace(' ', '_', $product_name) . "1.jpg";
-    $image_name2 = str_replace(' ', '_', $product_name) . "2.jpg";
-    $image_name3 = str_replace(' ', '_', $product_name) . "3.jpg";
-    $image_name4 = str_replace(' ', '_', $product_name) . "4.jpg";
+    // $image_name2 = str_replace(' ', '_', $product_name) . "2.jpg";
+    // $image_name3 = str_replace(' ', '_', $product_name) . "3.jpg";
+    // $image_name4 = str_replace(' ', '_', $product_name) . "4.jpg";
 
     // Upload image
-    move_uploaded_file($product_image1, "../img/product/" . $image_name1);
-    move_uploaded_file($product_image2, "../img/product/" . $image_name2);
-    move_uploaded_file($product_image3, "../img/product/" . $image_name3);
-    move_uploaded_file($product_image4, "../img/product/" . $image_name4);
+    move_uploaded_file($product_image, "../img/product/" . $image_name);
 
-    $query_insert_product = "INSERT INTO products (product_name, product_brand, product_category, 
-        product_criteria, product_color, product_description, product_price, special_offer, 
-        product_image1, product_image2, product_image3, product_image4) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $query_insert_product = "INSERT INTO products (product_name, product_category, 
+        product_criteria, product_description, product_price, product_image) 
+        VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt_insert_product = $conn->prepare($query_insert_product);
 
     $stmt_insert_product->bind_param(
-        'ssssssssssss',
+        'ssssss',
         $product_name,
-        $product_brand,
         $product_category,
         $product_criteria,
-        $product_color,
         $product_description,
         $product_price,
-        $product_special_offer,
-        $image_name1,
-        $image_name2,
-        $image_name3,
-        $image_name4
+        $image_name
     );
 
     if ($stmt_insert_product->execute()) {
@@ -93,32 +79,20 @@ if (isset($_POST['create_btn'])) {
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Name of Product</label>
                                     <input class="form-control" type="text" name="product_name">
-                                </div>
-                                <div class="form-group">
-                                    <label>Product Brand</label>
-                                    <select class="form-control" name="product_brand">
-                                        <option value="" disabled selected>Select Brand</option>
-                                        <option value="Khamzo">Khamzo</option>
-                                        <option value="Private">Private</option>
-                                        <option value="Spotec">Spotec</option>
-                                        <option value="Fleece">Fleece</option>
-                                        <option value="Houseofcut">Houseofcut</option>
-                                        <option value="Unixcomart">Unixcomart</option>
-                                        <option value="Firefly">Firefly</option>
-                                        <option value="Matsuda">Matsuda</option>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Product Category</label>
                                     <select class="form-control" name="product_category">
                                         <option value="" disabled selected>Select Category</option>
-                                        <option value="sepatu">Sepatu</option>
-                                        <option value="jaket">Jaket</option>
-                                        <option value="kaos">Kaos</option>
-                                        <option value="syal">Syal</option>
-                                        <option value="tas">Tas</option>
+                                        <option value="Paket">Paket</option>
+                                        <option value="Burger">Burger</option>
+                                        <option value="Snack">Snack</option>
+                                        <option value="Ala Carte">Ala Carte</option>
+                                        <option value="Drinks Refreshing">Drinks Refreshing</option>
+                                        <option value="Drinks Coffee">Drinks Coffeee</option>
+                                        <option value="Drinks Non Coffee">Drinks Non Coffee</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -129,23 +103,8 @@ if (isset($_POST['create_btn'])) {
                                     </div>
                                     <div class="custom-control custom-radio">
                                         <input type="radio" class="custom-control-input" id="none" name="product_criteria" value="none" required>
-                                        <label class="custom-control-label" for="none">Non-Favourite</label>
+                                        <label class="custom-control-label" for="none">None</label>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Color</label>
-                                    <select class="form-control" name="product_color">
-                                        <option value="" disabled selected>Select Color</option>
-                                        <option value="Red">Red</option>
-                                        <option value="Green">Green</option>
-                                        <option value="Blue">Blue</option>
-                                        <option value="Black">Black</option>
-                                        <option value="White">White</option>
-                                        <option value="Yellow">Yellow</option>
-                                        <option value="Brown">Brown</option>
-                                        <option value="Dark Brown">Dark Brown</option>
-                                        <option value="Gold">Gold</option>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
@@ -157,36 +116,11 @@ if (isset($_POST['create_btn'])) {
                                     <label>Price</label>
                                     <input class="form-control" type="text" name="product_price">
                                 </div>
-                                <div class="form-group">
-                                    <label>Special Offer</label>
-                                    <input class="form-control" type="text" name="product_special_offer">
-                                </div>
-                                <label>Image 1</label>
+                                <label>Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="addImage1" name="product_image1" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="addImage1">Choose file...</label>
-                                    </div>
-                                </div>
-                                <label>Image 2</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="addImage2" name="product_image2" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="addImage2">Choose file...</label>
-                                    </div>
-                                </div>
-                                <label>Image 3</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="addImage3" name="product_image3" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="addImage3">Choose file...</label>
-                                    </div>
-                                </div>
-                                <label>Image 4</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="addImage4" name="product_image4" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="addImage4">Choose file...</label>
+                                        <input type="file" class="custom-file-input" id="addImage1" name="product_image" aria-describedby="inputGroupFileAddon01">
+                                        <label class="custom-file-label" for="addImage">Choose file...</label>
                                     </div>
                                 </div>
                             </div>
