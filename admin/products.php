@@ -106,8 +106,9 @@ if (!isset($_SESSION['admin_logged_in'])) {
                             <th>ID</th>
                             <th>Product Image</th>
                             <th>Product Name</th>
-                            <th>Product Brand</th>
                             <th>Product Category</th>
+                            <th>Product Description</th>
+                            <th>Product Criteria</th>
                             <th>Product Price</th>
                             <th>Action</th>
                         </tr>
@@ -116,11 +117,12 @@ if (!isset($_SESSION['admin_logged_in'])) {
                         <?php foreach ($products as $product) { ?>
                             <tr>
                                 <td><?php echo $product['product_id']; ?></td>
-                                <td class="text-center"><img title="product_image" src="<?php echo '../img/product/' . $product['product_image1']; ?>" style="width: 80px; height: 80px;" /></td>
+                                <td class="text-center"><img title="product_image" src="<?php echo '../img/product/' . $product['product_image']; ?>" style="width: 80px; height: 80px;" /></td>
                                 <td><?php echo $product['product_name']; ?></td>
-                                <td><?php echo $product['product_brand']; ?></td>
                                 <td><?php echo $product['product_category']; ?></td>
-                                <td><?php echo setRupiah(($product['product_price'] * $kurs_dollar)); ?></td>
+                                <td><?php echo $product['product_description']; ?></td>
+                                <td><?php echo $product['product_criteria']; ?></td>
+                                <td><?php echo $product['product_price']; ?></td>
                                 <td class="text-center">
                                     <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_name=' . $product['product_name']; ?>" class="btn btn-warning btn-circle">
                                         <i class="fas fa-images"></i>

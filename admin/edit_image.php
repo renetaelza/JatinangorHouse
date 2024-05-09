@@ -41,32 +41,11 @@ if (isset($_GET['product_id'])) {
                             <div class="col-sm-12">
                                 <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                                 <input type="hidden" name="product_name" value="<?php echo $product_name; ?>" />
-                                <label>Image 1</label>
+                                <label>Image </label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="editImage1" name="image1" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="editImage1">Choose file...</label>
-                                    </div>
-                                </div>
-                                <label>Image 2</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="editImage2" name="image2" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="editImage2">Choose file...</label>
-                                    </div>
-                                </div>
-                                <label>Image 3</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="editImage3" name="image3" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="editImage3">Choose file...</label>
-                                    </div>
-                                </div>
-                                <label>Image 4</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="editImage4" name="image4" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="editImage4">Choose file...</label>
+                                        <input type="file" class="custom-file-input" id="editImage" name="image" aria-describedby="inputGroupFileAddon01">
+                                        <label class="custom-file-label" for="editImage">Choose file...</label>
                                     </div>
                                 </div>
                             </div>
