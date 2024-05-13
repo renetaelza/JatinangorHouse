@@ -4,58 +4,25 @@
 ?>
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h4>About Us</h4>
-                        <div class="breadcrumb__links">
-                            <a href="index.php">Home</a>
-                            <span>About Us</span>
+        <div class="container text-center">
+            <div class="border border-info" style="border-radius: 30px; width: 1150px; text-align: left; padding: 20px; border-width: 5px;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="breadcrumb__text">
+                                    <h4>About Us</h4>
+                                    <div class="breadcrumb__links">
+                                        <a href="index.php">Home</a>
+                                        <a href="">></a>
+                                        <span>About Us</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
+        
     </section>
     <!-- Breadcrumb Section End -->
-
-    <!-- About Section Begin -->
-    <section class="about spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="about__pic">
-                        <img src="img/about/about-us.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="about__item">
-                        <h4>Who We Are ?</h4>
-                        <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                        Let’s take Google as an example.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="about__item">
-                        <h4>Who We Do ?</h4>
-                        <p>In this digital generation where information can be easily obtained within seconds, business
-                        cards still have retained their importance.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="about__item">
-                        <h4>Why Choose Us</h4>
-                        <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                        sits, but for older or infirm people.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Section End -->
 
     <!-- Testimonial Section Begin -->
     <section class="testimonial">
@@ -63,23 +30,13 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="testimonial__text">
-                        <span class="icon_quotations"></span>
-                        <p>“Going out after work? Take your butane curling iron with you to the office, heat it up,
-                            style your hair before you leave the office and you won’t have to make a trip back home.”
+                        <p>Jatinangor House, restoran yang berasal dari Bandung, merupakan sebuah restoran yang menonjolkan ayam krispi sebagai menu andalan kami. 
+                            Jatinangor House terkenal dengan harga makanan dan minuman yang terjangkau serta menawarkan beragam pilihan ayam, burger, kentang goreng, dan minuman.
                         </p>
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="img/about/testimonial-author.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Augusta Schultz</h5>
-                                <p>Fashion Design</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 p-0">
-                    <div class="testimonial__pic set-bg" data-setbg="img/about/testimonial-pic.jpg"></div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63377.588807283406!2d107.55477769858376!3d-6.878705699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e741bce2bc5b%3A0x9941f74b87b25f6f!2sJatinangor%20House%20-%20Cisitu%20Dago!5e0!3m2!1sen!2sid!4v1715329033609!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -87,40 +44,32 @@
     <!-- Testimonial Section End -->
 
     <!-- Counter Section Begin -->
-    <section class="counter spad">
+    <section class="counter spad" style="margin-left: 330px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__item__number">
-                            <h2 class="cn_num">102</h2>
+                            <h2 class="cn_num">5000</h2>
+                            <strong>+</strong>
                         </div>
-                        <span>Our <br />Clients</span>
+                        <span>Total <br />Pelanggan</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__item__number">
-                            <h2 class="cn_num">30</h2>
+                            <h2 class="cn_num">50</h2>
                         </div>
-                        <span>Total <br />Categories</span>
+                        <span>Total <br />Menu</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__item__number">
-                            <h2 class="cn_num">102</h2>
+                            <h2 class="cn_num">38</h2>
                         </div>
-                        <span>In <br />Country</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <div class="counter__item__number">
-                            <h2 class="cn_num">98</h2>
-                            <strong>%</strong>
-                        </div>
-                        <span>Happy <br />Customer</span>
+                        <span>Total <br />Outlet</span>
                     </div>
                 </div>
             </div>
@@ -134,86 +83,43 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Our Team</span>
-                        <h2>Meet Our Team</h2>
+                        <h2>Informasi Outlet</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="img/about/team-1.jpg" alt="">
-                        <h4>John Smith</h4>
-                        <span>Fashion Design</span>
+                        <img src="img/about/foto1.png" alt="">
+                        <h4>Outlet Yogyakarta</h4>
+                        <span> Jl. Sorowajan Baru No.275, Tegal Tanda, Banguntapan, Kec. Banguntapan, Kab. Bantul, Daerah Istimewa Yogyakarta</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="img/about/team-2.jpg" alt="">
-                        <h4>Christine Wise</h4>
-                        <span>C.E.O</span>
+                        <img src="img/about/foto2.png" alt="">
+                        <h4>Outlet Jakarta</h4>
+                        <span>Jl. Manggarai Selatan I No.25, RT.11/RW.1, Manggarai, Kec. Tebet, Kota Jakarta Selatan.</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="img/about/team-3.jpg" alt="">
-                        <h4>Sean Robbins</h4>
-                        <span>Manager</span>
+                        <img src="img/about/foto3.png" alt="">
+                        <h4>Outlet Surabaya</h4>
+                        <span> Jalan Ngagel Jaya Utara No.170, Baratajaya, Kec. Gubeng, Surabaya</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="img/about/team-4.jpg" alt="">
-                        <h4>Lucy Myers</h4>
-                        <span>Delivery</span>
+                        <img src="img/about/foto4.png" alt="">
+                        <h4>Outlet Bandung</h4>
+                        <span>Jl. Kolonel Ahmad Syam No.71 Jatinangor</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Team Section End -->
-
-    <!-- Client Section Begin -->
-    <section class="clients spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Partner</span>
-                        <h2>Happy Clients</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-1.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-2.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-3.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-4.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-5.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-6.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-7.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-8.png" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Client Section End -->
-
 <?php
     include('layouts/footer.php');
 ?>

@@ -42,7 +42,7 @@
     <!-- Hero Section End -->
 
     <!-- Latest Promo Section Begin -->
-    <section class="latest spad">
+    <!-- <section class="latest spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -90,7 +90,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Latest Promo Section End -->
 
     <!-- Product Section Begin -->
@@ -115,7 +115,6 @@
                                 <h6><?php echo $row['product_name']; ?></h6>
                                 <p><?php echo $row['product_description'] ?></p>
                                 <h5><?php echo $row['product_price']; ?></h5>
-                                <button style="background-color: #3AD4D5; margin:5px" type="submit" name="add_to_cart" class="btn btn-info">Add to cart</button>
                             </div>
                         </div>
                     </div>

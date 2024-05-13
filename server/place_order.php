@@ -1,6 +1,12 @@
 <?php
 session_start();
 include('connection.php');
+$user_name = $_SESSION['user_name'];
+$user_email = $_SESSION['user_email'];
+$user_phone = $_SESSION['user_phone'];
+$user_city = $_SESSION['user_city'];
+$user_address = $_SESSION['user_address'];
+
 // If user is not logged in
 if (!isset($_SESSION['logged_in'])) {
     header('location: ../checkout.php?message=Please Login or Register to Place an Order');
@@ -9,12 +15,6 @@ if (!isset($_SESSION['logged_in'])) {
     // If user is logged in
 } else {
     if (isset($_POST['place_order'])) {
-        // 1. Get user info and save to the database
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $city = $_POST['city'];
-        $address = $_POST['address'];
         $order_cost = $_SESSION['total'];
         $order_status = "not paid";
         $user_id = $_SESSION['user_id'];
@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
                     VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt_orders = $conn->prepare($query_orders);
-        $stmt_orders->bind_param('ssissss', $order_cost, $order_status, $user_id, $phone, $city, $address, $order_date);
+        $stmt_orders->bind_param('ssissss', $order_cost, $order_status, $user_id, $user_phone, $user_city, $user_address, $order_date);
         $stmt_status = $stmt_orders->execute();
 
         if (!$stmt_status) {
@@ -43,13 +43,14 @@ if (!isset($_SESSION['logged_in'])) {
             $product_image = $product['product_image'];
             $product_price = $product['product_price'];
             $product_quantity = $product['product_quantity'];
+            $notes = $product['notes'];
 
             // 4. Store each single item to the order item in database
-            $query_order_items = "INSERT INTO order_items (order_id, product_id, product_name, product_image, product_price, product_quantity, user_id, order_date) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $query_order_items = "INSERT INTO order_item (order_id, product_id, product_name, product_image, product_price, product_quantity, notes, user_id, order_date) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmt_order_items = $conn->prepare($query_order_items);
-            $stmt_order_items->bind_param('iissssis', $order_id, $product_id, $product_name, $product_image, $product_price, $product_quantity, $user_id, $order_date);
+            $stmt_order_items->bind_param('iisssssis', $order_id, $product_id, $product_name, $product_image, $product_price, $product_quantity, $notes, $user_id, $order_date);
             $stmt_order_items->execute();
         }
 
