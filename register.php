@@ -85,8 +85,31 @@
     include('layouts/header.php');
 ?>
 
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container text-center">
+                <div class="border border-info" style="border-radius: 30px; width: 1130px; text-align: left; padding: 20px; border-width: 5px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h4>Registrasi</h4>
+                            <div class="breadcrumb__links">
+                                <a href="index.php">Home</a>
+                                <a href="">></a>
+                                <a href="login.php">Login</a>
+                                <a href="">></a>
+                                <span>Registrasi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
     <!-- Register Section Begin -->
-    <section class="checkout spad">
+    <section class="checkout spad" style="margin-top: -90px;">
         <div class="container">
             <div class="checkout__form">
                 <form id="checkout-form" method="POST" action="register.php" enctype="multipart/form-data">
@@ -95,11 +118,12 @@
                             echo $_GET['error'];
                         } ?>
                     </div>
+                    <br>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <h6 class="checkout__title">Registration</h6>
+                        <div class="col-lg-12 col-md-6">
+                            <h6 class="checkout__title">REGISTRASI</h6>
                             <div class="checkout__input">
-                                <p>Name<span>*</span></p>
+                                <p>Nama<span>*</span></p>
                                 <input type="text" id="registered-name" name="name" required>
                             </div>
                             <div class="checkout__input">
@@ -121,34 +145,35 @@
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Phone<span></span></p>
-                                <input type="text" name="phone">
+                                <p>Nomor Telepon<span>*</span></p>
+                                <input type="text" name="phone" required>
                             </div>
                             <div class="checkout__input">
-                                <p>Town/City<span></span></p>
-                                <input type="text" name="city">
+                                <p>Kota<span>*</span></p>
+                                <input type="text" name="city" required>
                             </div>
                             <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" name="address" placeholder="Street Address" class="checkout__input__add">
+                                <p>Alamat<span>*</span></p>
+                                <input type="text" name="address" placeholder="Street Address" class="checkout__input__add" required>
                             </div>
                             <div>
-                                <p>Photo<span></span></p>
+                                <p>Foto Profil (Opsional)<span></span></p>
                                 <div class="custom-file">
                                     <input type="file" id="photo" name="photo" />
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="cold-md-12">
                                     <p> </p>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <input type="submit" class="site-btn" id="register-btn" name="register" value="REGISTER" />
+                                <input type="submit" style="color: white; border-radius: 10px;" class="btn btn-info" id="register-btn" name="register" value="REGISTER" />
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc">
-                                    <a id="login-url" href="login.php">Do you have an account? Login</a>
+                                    <a style="margin-left: -30px;" id="login-url" href="login.php">Sudah mempunyai akun? Login disini</a>
                                 </label>
                             </div>
                         </div>

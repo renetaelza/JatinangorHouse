@@ -67,27 +67,31 @@ if (isset($_SESSION['total'])) {
 ?>
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h4>Account</h4>
-                        <div class="breadcrumb__links">
-                            <a href="index.php">Home</a>
-                            <span>Account</span>
+        <div class="container text-center">
+            <div class="border border-info" style="border-radius: 30px; width: 1150px; text-align: left; padding: 20px; border-width: 5px;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="breadcrumb__text">
+                                    <h4>Account</h4>
+                                    <div class="breadcrumb__links">
+                                        <a href="index.php">Home</a>
+                                        <a href="">></a>
+                                        <span>Account</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
+        
     </section>
     <!-- Breadcrumb Section End -->
 
     <!-- Checkout Section Begin -->
-    <section class="checkout spad">
+    <section class="checkout spad" style="margin-top: -90px;">
         <div class="container">
             <div class="checkout__form">
-                <div class="row">
+                <div>
                     <div class="col-lg-6 col-md-6">
                         <form id="account-form" method="POST" action="account.php">
                             <?php if (isset($_GET['success'])) { ?>
@@ -104,21 +108,9 @@ if (isset($_SESSION['total'])) {
                                     } ?>
                                 </div>
                             <?php } ?>
-                            <h6 class="checkout__title">Change Password</h6>
-                            <div class="checkout__input">
-                                <p>Password</p>
-                                <input type="password" id="account-password" name="password">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Confirm Password</p>
-                                <input type="password" id="account-confirm-password" name="confirm_password">
-                            </div>
-                            <div class="checkout__input">
-                                <input type="submit" class="site-btn" id="change-password-btn" name="change_password" value="CHANGE PASSWORD" />
-                            </div>
                         </form>
                     </div>
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-12 col-md-6" style="margin-left: 5px;">
                         <?php if (isset($_GET['message'])) { ?>
                             <div class="alert alert-info" role="alert">
                                 <?php if (isset($_GET['message'])) {
@@ -126,37 +118,41 @@ if (isset($_SESSION['total'])) {
                                 } ?>
                             </div>
                         <?php } ?>
-                        <div class="checkout__order">
-                            <h4 class="order__title">Account Info</h4>
-                            <div class="row">
-                                <div class="col-sm-6 col-md-4">
-                                    <img src="<?php echo 'img/profile/' . $_SESSION['user_photo']; ?>" alt="" class="rounded-circle img-responsive" />
+                        <br>
+                        <div style="margin-left: 300px;">
+                            <div class="profile" style="width: 500px;">
+                                <div class="container text-center">
+                                    <h4 class="order__title">Informasi Akun</h4>
                                 </div>
-                                <div class="col-sm-6 col-md-8">
-                                    <h4><?php if (isset($_SESSION['user_name'])) {
-                                            echo $_SESSION['user_name'];
-                                        } ?></h4>
-                                    <small><cite title="Address"><?php if (isset($_SESSION['user_address'])) {
-                                                                        echo $_SESSION['user_address'];
-                                                                    } ?>, <?php if (isset($_SESSION['user_city'])) {
-                                                                                                                                                            echo $_SESSION['user_city'];
-                                                                                                                                                        } ?> <i class="fas fa-map-marker-alt"></i></cite></small>
-                                    <p>
-                                        <i class="fa fa-envelope"></i> <?php if (isset($_SESSION['user_email'])) {
-                                                                            echo $_SESSION['user_email'];
-                                                                        } ?>
-                                        <br />
-                                        <i class="fa fa-phone"></i> <?php if (isset($_SESSION['user_phone'])) {
-                                                                            echo $_SESSION['user_phone'];
-                                                                        } ?>
-                                    </p>
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-6 col-md-4">
+                                        <img class="rounded-circle object-fit-cover" src="<?php echo 'img/profile/' . $_SESSION['user_photo']; ?>" alt="" />
+                                    </div>
+                                    <div class="col-sm-6 col-md-8">
+                                        <h4><?php if (isset($_SESSION['user_name'])) {
+                                                echo $_SESSION['user_name'];
+                                            } ?></h4>
+                                        <small><cite title="Address"><?php if (isset($_SESSION['user_address'])) {
+                                                                            echo $_SESSION['user_address'];
+                                                                        } ?>, <br> <?php if (isset($_SESSION['user_city'])) {
+                                                                                                                                                                echo $_SESSION['user_city'];
+                                                                                                                                                            } ?> <i class="fas fa-map-marker-alt"></i></cite></small>
+                                        <p>
+                                            <i class="fa fa-envelope"></i> <?php if (isset($_SESSION['user_email'])) {
+                                                                                echo $_SESSION['user_email'];
+                                                                            } ?>
+                                            <br />
+                                            <i class="fa fa-phone"></i> <?php if (isset($_SESSION['user_phone'])) {
+                                                                                echo $_SESSION['user_phone'];
+                                                                            } ?>
+                                        </p>
+                                    </div>
                                 </div>
+                                <h4 class="order__title"></h4>
+                                <a style="margin-left: 150px;" href="account.php?logout=1" id="logout-btn" class="btn btn-danger">LOG OUT</a>
                             </div>
-                            <h4 class="order__title"></h4>
-                            <a href="#orders" class="btn btn-primary">YOUR ORDERS</a>
-                            <a href="account.php?logout=1" id="logout-btn" class="btn btn-danger">LOG OUT</a>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -164,7 +160,7 @@ if (isset($_SESSION['total'])) {
     <!-- Checkout Section End -->
 
     <!-- Order History Begin -->
-    <section id="orders" class="shopping-cart spad">
+    <section id="orders" class="shopping-cart spad" style="margin-top: -120px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -174,18 +170,18 @@ if (isset($_SESSION['total'])) {
                                 echo $_GET['payment_message'];
                             } ?>
                         </div>
-                        <h2>Your Orders History</h2>
-                        <span>***</span>
+                        <br>
+                        <h2>Riwayat Pesanan</h2>
                     </div>
                     <div class="shopping__cart__table">
                         <table>
                             <thead>
                                 <tr>
                                     <th>Order ID</th>
-                                    <th>Cost</th>
+                                    <th>Total Harga</th>
                                     <th>Status</th>
-                                    <th>Date</th>
-                                    <th>Details</th>
+                                    <th>Tanggal</th>
+                                    <th>Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -198,7 +194,7 @@ if (isset($_SESSION['total'])) {
                                         </td>
                                         <td class="product__cart__item">
                                             <div class="product__cart__item__text">
-                                                <?php echo setRupiah($order['order_cost'] * $kurs_dollar); ?>
+                                                <?php echo $order['order_cost']; ?>
                                             </div>
                                         </td>
                                         <td class="product__cart__item">

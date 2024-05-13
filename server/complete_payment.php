@@ -24,7 +24,7 @@
         $stmt_save_payment->execute();
 
         // Go to user account
-        header('location: ../account.php?payment_message=Paid successfully, thanks for your shopping with us');
+        header('location: ../account.php?payment_message=Pesanan diterima, pesanan anda akan kami proses!');
 
     } else {
         header('location: ../index.php');

@@ -67,7 +67,7 @@
                         <ul>
                             <li <?php if($_SERVER['SCRIPT_NAME']=="/index.php") { ?>  class="active"   <?php   }  ?>><a href="../index.php">Home</a></li>
                             <li <?php if($_SERVER['SCRIPT_NAME']=="/shop.php") { ?>  class="active"   <?php   }  ?>><a href="../shop.php">Menu</a></li>
-                            <li <?php if($_SERVER['SCRIPT_NAME']=="/promo.php") { ?>  class="active"   <?php   }  ?>><a href="../promo.php">Promo</a></li>
+                            <!-- <li <?php if($_SERVER['SCRIPT_NAME']=="/promo.php") { ?>  class="active"   <?php   }  ?>><a href="../promo.php">Promo</a></li> -->
                             <li <?php if($_SERVER['SCRIPT_NAME']=="/about.php") { ?>  class="active"   <?php   }  ?>><a href="../about.php">About Us</a></li>
                             <li <?php if($_SERVER['SCRIPT_NAME']=="/contact.php") { ?>  class="active"   <?php   }  ?>><a href="../contact.php">Contact</a></li>
                         </ul>

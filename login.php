@@ -32,9 +32,9 @@
                 $_SESSION['user_photo'] = $user_photo;
                 $_SESSION['logged_in'] = true;
 
-                header('location: account.php?message=Logged in successfully');
+                header('location: account.php?message=Berhasil login!');
             } else {
-                header('location: login.php?error=Could not verify your account');
+                header('location: login.php?error=Email atau password salah!');
             }
         } else {
             // Error
@@ -48,26 +48,30 @@
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h4>Login</h4>
-                        <div class="breadcrumb__links">
-                            <a href="index.php">Home</a>
-                            <span>Login</span>
+        <div class="container text-center">
+                <div class="border border-info" style="border-radius: 30px; width: 1130px; text-align: left; padding: 20px; border-width: 5px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h4>Login</h4>
+                            <div class="breadcrumb__links">
+                                <a href="index.php">Home</a>
+                                <a href="">></a>
+                                <span>Login</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </section>
     <!-- Breadcrumb Section End -->
 
     <!-- Checkout Section Begin -->
-    <section class="checkout spad">
-        <div class="container">
-            <div class="checkout__form">
+    <section class="checkout spad" style="margin-top: -90px;">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="checkout__form" style="width: 1000px;">
                 <form id="login-form" method="POST" action="login.php">
                     <?php if (isset($_GET['error'])) { ?>
                         <div class="alert alert-danger" role="alert">
@@ -76,23 +80,22 @@
                             } ?>
                         </div>
                     <?php } ?>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <h6 class="checkout__title">Login</h6>
-                            <div class="checkout__input">
+                    <div class>
+                        <div class="col-lg-12 col-md-9">
+                            <div class="checkout__input" style="border-radius: 10px;">
                                 <p>Email</p>
                                 <input type="email" name="user_email">
                             </div>
-                            <div class="checkout__input">
+                            <div class="checkout__input" style="border-radius: 10px;">
                                 <p>Password</p>
                                 <input type="password" name="user_password">
                             </div>
                             <div class="checkout__input">
-                                <input type="submit" class="site-btn" id="login-btn" name="login_btn" value="LOGIN" />
+                                <input type="submit" style="color: white; border-radius: 10px;" class="btn btn-info" id="login-btn" name="login_btn" value="LOGIN" />
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label>
-                                    <a id="register-url" href="register.php">Do you have an account? Register</a>
+                                    <a id="register-url" href="register.php">Belum mempunyai akun? Daftar disini</a>
                                 </label>
                             </div>
                         </div>
