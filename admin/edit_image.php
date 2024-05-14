@@ -51,8 +51,8 @@ if (isset($_GET['product_id'])) {
                             </div>
                         </div>
                         <div class="m-t-20 text-right">
-                        <a href="products.php" class="btn btn-danger">Cancel <i class="fas fa-undo"></i></a>
-                            <button type="submit" class="btn btn-primary submit-btn" name="update_image_btn">Update Image <i class="fas fa-save"></i></button>
+                        <a href="products.php" class="btn btn-outline-danger">Cancel <i class="fas fa-undo"></i></a>
+                            <button type="submit" class="btn btn-outline-success submit-btn" name="update_image_btn">Update Image <i class="fas fa-save"></i></button>
                         </div>
                     </form>
                 </div>
