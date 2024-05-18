@@ -9,6 +9,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 <?php
 
+// Query untuk mengambil data order dan produk terkait
 $query_orders = "SELECT o.order_id, o.order_cost, o.order_status, u.user_name, o.user_address, p.product_name, oi.product_quantity
                  FROM orders o
                  JOIN order_item oi ON o.order_id = oi.order_id 
@@ -28,7 +29,7 @@ while ($row = $orders->fetch_assoc()) {
         $grup_orders[$order_id] = [
             'order_id' => $row['order_id'],
             'order_cost' => $row['order_cost'],
-            'order_status' => $row['prder_cost'],
+            'order_status' => $row['order_status'],
             'user_name' => $row['user_name'],
             'user_address' => $row['user_address'],
             'products' => []
@@ -37,7 +38,7 @@ while ($row = $orders->fetch_assoc()) {
     //Menambahkan informasi produk ke dalam pesanan user
     $grup_orders[$order_id]['products'][] = [
         'product_name' => $row['product_name'],
-        'product_quantity' => $row['quantity']
+        'product_quantity' => $row['product_quantity']
     ];
 }
 
@@ -99,16 +100,20 @@ while ($row = $orders->fetch_assoc()) {
                                 <td><?php echo $order['user_address']; ?></td>
                                 <td>
                                     <?php foreach ($order['products'] as $product) { ?>
-                                        <?php echo $product['product_name'] . ' (' . $product['quantity'] . ')'; ?><br>
-                                        
+                                        <?php echo $product['product_name']; ?><br>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <?php foreach ($order['products'] as $product) { ?>
+                                        <?php echo $product['product_quantity']; ?><br>
                                     <?php } ?>
                                 </td>
                                 <td class="text-center">
-                                    <a href="order_edit.php?order_id=<?php echo $customer['order_id']; ?>" class="btn btn-info btn-circle">
-                                        <i class="fas fa-edit"></i>
+                                    <a href="order_edit.php?order_id=<?php echo $order['order_id']; ?>" class="btn btn-outline-warning btn-circle">
+                                        <i class="bx bx-edit-alt"></i>
                                     </a>
-                                    <a href="order_delete.php?order_id=<?php echo $customer['order_id']; ?>" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash-alt"></i>
+                                    <a href="order_delete.php?order_id=<?php echo $order['order_id']; ?>" class="btn btn-outline-danger btn-circle">
+                                        <i class="bx bx-trash"></i>
                                     </a>
                                 </td>
                             </tr>

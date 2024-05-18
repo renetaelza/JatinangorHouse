@@ -90,7 +90,7 @@ if (isset($_POST['login_btn'])) {
                                         </h1>
                                     </div>
                                     <form class="user" id="login-form" enctype="multipart/form-data" method="POST" action="login.php">
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <input type="email" class="form-control form-control-user" name="admin_email" placeholder="Enter Email Address..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
@@ -102,7 +102,7 @@ if (isset($_POST['login_btn'])) {
                                                 <label class="custom-control-label" for="customCheck">Remember Me</label>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-success btn-user btn-block" name="login_btn" value="Login" />
+                                        <input type="submit" class="btn btn-outline-primary btn-user btn-block" name="login_btn" value="Login" />
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -129,6 +129,9 @@ if (isset($_POST['login_btn'])) {
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </body>
 

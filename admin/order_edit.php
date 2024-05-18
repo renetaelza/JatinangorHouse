@@ -73,8 +73,9 @@
                                             <option value="" disabled>Select Status</option>
                                             <option value="not paid" <?php if ($order['order_status'] == 'not paid') echo ' selected'; ?>>Not Paid</option>
                                             <option value="paid" <?php if ($order['order_status'] == 'paid') echo ' selected'; ?>>Paid</option>
-                                            <option value="shipped" <?php if ($order['order_status'] == 'shipped') echo ' selected'; ?>>Shipped</option>
+                                            <option value="shipped" <?php if ($order['order_status'] == 'shipped') echo ' selected'; ?>>Preparing</option>
                                             <option value="delivered" <?php if ($order['order_status'] == 'delivered') echo ' selected'; ?>>Delivered</option>
+                                            <option value="delivered" <?php if ($order['order_status'] == 'delivered') echo ' selected'; ?>>Done</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

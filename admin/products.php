@@ -122,14 +122,14 @@ if (!isset($_SESSION['admin_logged_in'])) {
                                 <td><?php echo $product['product_criteria']; ?></td>
                                 <td><?php echo $product['product_price']; ?></td>
                                 <td class="text-center">
-                                    <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_name=' . $product['product_name']; ?>" class="btn btn-warning btn-circle">
-                                        <i class="far fa-images"></i>
+                                    <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_name=' . $product['product_name']; ?>" class="btn btn-outline-success btn-circle">
+                                        <i class="bx bx-image-add"></i>
                                     </a>
-                                    <a href="products_edit.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-success btn-circle">
-                                        <i class="fas fa-pen"></i>
+                                    <a href="products_edit.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-outline-warning btn-circle">
+                                        <i class="bx bx-edit-alt"></i>
                                     </a>
-                                    <a href="products_delete.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-danger btn-circle">
-                                        <i class="far fa-trash-alt"></i>
+                                    <a href="products_delete.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-outline-danger btn-circle">
+                                        <i class="bx bx-trash"></i>
                                     </a>
                                 </td>
                             </tr>

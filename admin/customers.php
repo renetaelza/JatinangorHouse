@@ -105,7 +105,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
                             <th>Customer Phone</th>
                             <th>Customer Address</th>
                             <th>Customer City</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -116,15 +115,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
                                 <td><?php echo $customer['user_name']; ?></td>
                                 <td><?php echo $customer['user_phone']; ?></td>
                                 <td><?php echo $customer['user_address']; ?></td>
-                                <td><?php echo $customer['user_city']; ?></td>
-                                <td class="text-center">
-                                    <a href="customers_edit.php?user_id=<?php echo $customer['user_id']; ?>" class="btn btn-info btn-circle">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="customers_delete.php?user_id=<?php echo $customer['user_id']; ?>" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </td>
+                                <td><?php echo $customer['user_city']; ?></td> 
                             </tr>
                         <?php } ?>
                     </tbody>
