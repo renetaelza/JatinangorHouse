@@ -2,17 +2,11 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; 2022 | Sistem Informasi Itenas Bandung | This website is made with <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i> by <a href="https://github.com/kurniaramadhan" target="_blank">Kurnia Ramadhan Putra</a></span>
+            <!-- <span>Copyright &copy; 2022 | Sistem Informasi Itenas Bandung | This website is made with <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i> by <a href="https://github.com/kurniaramadhan" target="_blank">Kurnia Ramadhan Putra</a></span> -->
         </div>
     </div>
 </footer>
 <!-- End of Footer -->
-
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
@@ -31,8 +25,8 @@
             </div>
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="logout.php?logout=1">Logout</a>
+                <button class="btn btn-outline-success" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-outline-danger" href="logout.php?logout=1">Logout</a>
             </div>
         </div>
     </div>

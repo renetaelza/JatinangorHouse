@@ -15,8 +15,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
     $stmt_products->execute();
     $products = $stmt_products->get_result();
 
-    $kurs_dollar = 15722;
-
     function setRupiah($price)
     {
         $result = "Rp".number_format($price, 0, ',', '.');
@@ -124,14 +122,14 @@ if (!isset($_SESSION['admin_logged_in'])) {
                                 <td><?php echo $product['product_criteria']; ?></td>
                                 <td><?php echo $product['product_price']; ?></td>
                                 <td class="text-center">
-                                    <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_name=' . $product['product_name']; ?>" class="btn btn-warning btn-circle">
-                                        <i class="fas fa-images"></i>
+                                    <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_name=' . $product['product_name']; ?>" class="btn btn-outline-success btn-circle">
+                                        <i class="bx bx-image-add"></i>
                                     </a>
-                                    <a href="edit_product.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-circle">
-                                        <i class="fas fa-edit"></i>
+                                    <a href="products_edit.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-outline-warning btn-circle">
+                                        <i class="bx bx-edit-alt"></i>
                                     </a>
-                                    <a href="delete_product.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash-alt"></i>
+                                    <a href="products_delete.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-outline-danger btn-circle">
+                                        <i class="bx bx-trash"></i>
                                     </a>
                                 </td>
                             </tr>

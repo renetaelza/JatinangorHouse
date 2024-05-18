@@ -204,7 +204,7 @@ function calculateTotalCart()
                                             <td colspan="3">
                                                 <form method="POST" action="shopping-cart.php">
                                                 <div class="form-group row">
-                                                        <label for="inputPassword" class="col-sm-3 col-form-label">Catatan (Opsional)</label>
+                                                        <label class="col-sm-3 col-form-label">Catatan (Opsional)</label>
                                                         <div class="col-sm-9">
                                                         <input type="text" name="notes" class="form-control" placeholder="Contoh: sambalnya banyakin dong!">
                                                 </div>
