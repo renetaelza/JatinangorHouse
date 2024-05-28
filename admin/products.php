@@ -15,18 +15,18 @@ if (!isset($_SESSION['admin_logged_in'])) {
     $stmt_products->execute();
     $products = $stmt_products->get_result();
 
-    function setRupiah($price)
+    function setRupiah($product_price)
     {
-        $result = "Rp".number_format($price, 0, ',', '.');
+        $result = "Rp. ".number_format($product_price, 0, ',', '.');
         return $result;
     }
 ?>
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid mt-4">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Products</h1>
+    <h1 class="h3 mb-2 text-gray-800 text-uppercase fw-bolder">Products</h1>
     <nav class="mt-4 rounded" aria-label="breadcrumb">
         <ol class="breadcrumb px-3 py-2 rounded mb-4">
             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
@@ -37,9 +37,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Products</h6>
-        </div>
         <div class="card-body">
             <?php if (isset($_GET['success_update_message'])) { ?>
                 <div class="alert alert-info" role="alert">
@@ -113,24 +110,24 @@ if (!isset($_SESSION['admin_logged_in'])) {
                     </thead>
                     <tbody>
                         <?php foreach ($products as $product) { ?>
-                            <tr>
+                            <tr class="text-wrap">
                                 <td><?php echo $product['product_id']; ?></td>
                                 <td class="text-center"><img title="product_image" src="<?php echo '../img/product/' . $product['product_image']; ?>" style="width: 80px; height: 80px;" /></td>
                                 <td><?php echo $product['product_name']; ?></td>
                                 <td><?php echo $product['product_category']; ?></td>
                                 <td><?php echo $product['product_description']; ?></td>
                                 <td><?php echo $product['product_criteria']; ?></td>
-                                <td><?php echo $product['product_price']; ?></td>
+                                <td><?php echo setRupiah($product['product_price']); ?></td>
                                 <td class="text-center">
-                                    <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_name=' . $product['product_name']; ?>" class="btn btn-outline-success btn-circle">
+                                    <a href="<?php echo 'edit_image.php?product_id=' . $product['product_id'] . '&product_image=' . $product['product_image']; ?>" class="btn btn-outline-success btn-circle">
                                         <i class="bx bx-image-add"></i>
                                     </a>
                                     <a href="products_edit.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-outline-warning btn-circle">
                                         <i class="bx bx-edit-alt"></i>
                                     </a>
-                                    <a href="products_delete.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-outline-danger btn-circle">
+                                    <button class="btn btn-outline-danger btn-circle" data-toggle="modal" data-target="#deleteModal" data-product_id="<?php echo $product['product_id']; ?>">
                                         <i class="bx bx-trash"></i>
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -141,4 +138,39 @@ if (!isset($_SESSION['admin_logged_in'])) {
     </div>
 </div>
 <!-- End of Main Content -->
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this product?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel</button>
+                <a href="#" id="confirmDeleteButton" class="btn btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<script>
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var product_id = button.data('product_id');
+        var modal = $(this);
+        modal.find('#confirmDeleteButton').attr('href', 'products_delete.php?product_id=' + product_id);
+    });
+</script>
+
 <?php include('layouts/footer.php'); ?>
