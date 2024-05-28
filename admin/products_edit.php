@@ -43,23 +43,20 @@
 ?>
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid mt-4">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Menu</h1>
+    <h1 class="h3 mb-2 text-gray-800 text-uppercase fw-bolder">Edit Products</h1>
     <nav class="mt-4 rounded" aria-label="breadcrumb">
         <ol class="breadcrumb px-3 py-2 rounded mb-4">
             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="products.php">Mneu</a></li>
-            <li class="breadcrumb-item active">Edit Menu</li>
+            <li class="breadcrumb-item"><a href="products.php">Products</a></li>
+            <li class="breadcrumb-item active">Edit Products</li>
         </ol>
     </nav>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Menu</h6>
-        </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -69,7 +66,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
-                                        <label>Name of Menu</label>
+                                        <label>Name of Products</label>
                                         <input class="form-control" type="text" name="product_name" value="<?php echo $product['product_name']; ?>">
                                     </div>
                                     <div class="form-group">

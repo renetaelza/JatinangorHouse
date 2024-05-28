@@ -80,15 +80,13 @@ if (isset($_POST['login_btn'])) {
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-dark mb-4">Welcome Back!</h1>
                                     </div>
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">
-                                            <?php if (isset($_GET['error'])) {
-                                                echo $_GET['error'];
-                                            } ?>
-                                        </h1>
+                                    <?php if (isset($_GET['error'])): ?>
+                                    <div class="alert alert-danger alert-dismissible fade show bi bi-exclamation-triangle" role="alert">
+                                        <?php echo $_GET['error']; ?>
                                     </div>
+                                    <?php endif; ?>
                                     <form class="user" id="login-form" enctype="multipart/form-data" method="POST" action="login.php">
                                         <div class="form-group ">
                                             <input type="email" class="form-control form-control-user" name="admin_email" placeholder="Enter Email Address..." autocomplete="off">
@@ -105,9 +103,6 @@ if (isset($_POST['login_btn'])) {
                                         <input type="submit" class="btn btn-outline-primary btn-user btn-block" name="login_btn" value="Login" />
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
