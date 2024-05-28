@@ -11,11 +11,11 @@
 <?php 
     if (isset($_GET['order_id'])) {
         $order_id = $_GET['order_id'];
-        $query_edit_order = "SELECT * FROM orders WHERE order_id = ?";
-        $stmt_edit_order = $conn->prepare($query_edit_order);
-        $stmt_edit_order->bind_param('i', $order_id);
-        $stmt_edit_order->execute();
-        $orders = $stmt_edit_order->get_result();
+        $query_order_edit = "SELECT * FROM orders WHERE order_id = ?";
+        $stmt_order_edit = $conn->prepare($query_order_edit);
+        $stmt_order_edit->bind_param('i', $order_id);
+        $stmt_order_edit->execute();
+        $orders = $stmt_order_edit->get_result();
 
     } else if (isset($_POST['edit_btn'])) {
         $o_id = $_POST['order_id'];
@@ -38,10 +38,10 @@
 ?>
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid mt-4">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Order</h1>
+    <h1 class="h3 mb-2 text-gray-800 text-uppercase fw-bolder">Edit Order</h1>
     <nav class="mt-4 rounded" aria-label="breadcrumb">
         <ol class="breadcrumb px-3 py-2 rounded mb-4">
             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
@@ -51,14 +51,11 @@
     </nav>
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Order</h6>
-        </div>
+    <div class="card shadow mb-4 ">
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <form id="edit-form" method="POST" action="edit_order.php">
+                    <form id="edit-form" method="POST" action="order_edit.php">
                         <div class="row">
                             <?php foreach ($orders as $order) { ?>
                                 <div class="col-sm-12">
@@ -69,13 +66,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Order Status</label>
-                                        <select class="form-control" name="order_status" <?php if ($order['order_status'] == 'delivered') echo ' disabled'; ?>>
+                                        <select class="form-control" name="order_status" <?php if ($order['order_status'] == 'delivered' || $order['order_status'] == 'not paid') echo ' disabled'; ?>>
                                             <option value="" disabled>Select Status</option>
-                                            <option value="not paid" <?php if ($order['order_status'] == 'not paid') echo ' selected'; ?>>Not Paid</option>
-                                            <option value="paid" <?php if ($order['order_status'] == 'paid') echo ' selected'; ?>>Paid</option>
-                                            <option value="shipped" <?php if ($order['order_status'] == 'shipped') echo ' selected'; ?>>Preparing</option>
-                                            <option value="delivered" <?php if ($order['order_status'] == 'delivered') echo ' selected'; ?>>Delivered</option>
-                                            <option value="delivered" <?php if ($order['order_status'] == 'delivered') echo ' selected'; ?>>Done</option>
+                                            <option value="preparing" <?php if ($order['order_status'] == 'preparing') echo ' selected'; ?>>Preparing</option>
+                                            <option value="ontheway" <?php if ($order['order_status'] == 'ontheway') echo ' selected'; ?>>On The Way</option>
+                                            <option value="done" <?php if ($order['order_status'] == 'done') echo ' selected'; ?>>Done</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
