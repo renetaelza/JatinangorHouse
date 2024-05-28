@@ -111,9 +111,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Quantity</th>
-                                    <th>Date</th>
+                                    <th>Pesanan</th>
+                                    <th>Jumlah</th>
+                                    <th>Sub Total</th>
+                                    <th>Tanggal Pesan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -125,12 +126,17 @@
                                             </div>
                                             <div class="product__cart__item__text">
                                                 <h6><?php echo $row['product_name']; ?></h6>
-                                                <h5><?php echo $row['product_price']; ?></h5>
+                                                <h5><?php echo number_format($row['product_price'], 0, ',', '.'); ?></h5>
                                             </div>
                                         </td>
                                         <td class="product__cart__item">
                                             <div class="product__cart__item__text">
                                                 <h5><?php echo $row['product_quantity']; ?></h5>
+                                            </div>
+                                        </td>
+                                        <td class="product__cart__item">
+                                            <div class="product__cart__item__text">
+                                                <h5><?php echo number_format($row['product_quantity'] * $row['product_price'], 0, ',', '.'); ?></h5>
                                             </div>
                                         </td>
                                         <td class="product__cart__item">
@@ -151,7 +157,7 @@
                                 value="<?php echo $order_status; ?>" />
                                 <div class="row">
                                     <div class="container text-center">
-                                        <input type="submit" name="order_pay_btn" class="btn btn-primary" value="Bayar Sekarang" />
+                                        <input style="background-color: #3AD4D5;" type="submit" name="order_pay_btn" class="btn btn-primary" value="Bayar Sekarang" />
                                         <a class="btn btn-danger" href="actionDeleteOrder.php?order_id=<?php echo $row['order_id']; ?>" onclick="return confirm('Are you sure to delete this data?')">Batalkan Pesanan</a>
                                     </div>
                                 </div>
@@ -166,7 +172,7 @@
                                 value="<?php echo $order_status; ?>" />
                                 <div class="row">
                                     <div class="container text-center">
-                                        <a class="btn btn-danger" href="actionDeleteOrder.php?order_id=<?php echo $row['order_id']; ?>" onclick="return confirm('Are you sure to delete this data?')">Batalkan Pesanan</a>
+                                        <a class="btn btn-danger" href="actionDeleteOrder.php?order_id=<?php echo $row['order_id']; ?>" onclick="return confirm('Apakah anda yakin untuk membatalkan pesanan?')">Batalkan Pesanan</a>
                                     </div>
                                 </div>
                             </form>
@@ -189,23 +195,18 @@
                 </div>
             </div>
         </div>
+        <div class="container text-center" style="margin-top: 30px; margin-bottom: -50px;">
+            <a href="account.php" style="color: black;">
+                <img style="width: 20px;" src="img/icon/back.png" alt="">
+                Kembali
+            </a>
+        </div>
     </section>
     <!-- Order Details Section End -->
 
     <?php 
     include ('layouts/footer.php'); 
     ?>
-
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search End -->
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

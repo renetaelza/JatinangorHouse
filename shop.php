@@ -121,7 +121,7 @@
                                 <div class="product__item__text">
                                     <h6><?php echo $row['product_name']; ?></h6>
                                     <p><?php echo $row['product_description'] ?></p>
-                                    <h5><?php echo $row['product_price']; ?></h5>
+                                    <h5><?php echo number_format($row['product_price'], 0, ',', '.'); ?></h5>
                                     <!-- Change the form action to shopping-cart.php -->
                                     <form method="POST" action="shopping-cart.php">
                                         <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">

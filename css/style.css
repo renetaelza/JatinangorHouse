@@ -2440,7 +2440,7 @@ color: #999;
 -----------------------*/
 
 .testimonial {
-	margin-left: 270px;
+	margin-left: 190px;
 	background: #f3f2ee;
 	width: 1150px;
 }
@@ -2633,8 +2633,8 @@ color: #999;
 .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
 	float: left;
 	margin-right: 30px;
-	height: 90px;
-	width: 90px;
+	height: 100px;
+	width: 100px;
 }
 
 .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__text {
