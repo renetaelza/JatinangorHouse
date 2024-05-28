@@ -126,7 +126,7 @@ if (isset($_SESSION['total'])) {
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-sm-6 col-md-4">
-                                        <img class="rounded-circle object-fit-cover" src="<?php echo 'img/profile/' . $_SESSION['user_photo']; ?>" alt="" />
+                                        <img style="border-radius: 50px" src="<?php echo 'img/profile/' . $_SESSION['user_photo']; ?>"/>
                                     </div>
                                     <div class="col-sm-6 col-md-8">
                                         <h4><?php if (isset($_SESSION['user_name'])) {
@@ -165,11 +165,10 @@ if (isset($_SESSION['total'])) {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <div class="alert alert-info" role="alert">
-                            <?php if (isset($_GET['payment_message'])) {
-                                echo $_GET['payment_message'];
-                            } ?>
-                        </div>
+                        <?php if (isset($_GET['payment_message'])) { ?>
+                            <div class="alert alert-info" role="alert">
+                            </div>
+                        <?php } ?>
                         <br>
                         <h2>Riwayat Pesanan</h2>
                     </div>
@@ -211,7 +210,7 @@ if (isset($_SESSION['total'])) {
                                             <td class="cart__price">
                                                 <input type="hidden" value="<?php echo $order['order_status']; ?>" name="order_status"/>
                                                 <input type="hidden" value="<?php echo $order['order_id']; ?>" name="order_id"/>
-                                                <input class="btn btn-success" name="order_details_btn" type="submit" value="Details"/>
+                                                <input class="btn btn-success" style="background-color: #3AD4D5" name="order_details_btn" type="submit" value="Details"/>
                                             </td>
                                         </form>
                                     </tr>
