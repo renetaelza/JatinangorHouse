@@ -16,7 +16,7 @@
     $stmt_total_orders->store_result();
     $stmt_total_orders->fetch();
 
-    $query_total_payments = "SELECT SUM(o.order_cost) AS total_payments FROM payments p, orders o WHERE p.order_id = o.order_id";
+    $query_total_payments = "SELECT SUM(order_cost) AS total_payments FROM orders WHERE order_status = 'paid'";
     $stmt_total_payments = $conn->prepare($query_total_payments);
     $stmt_total_payments->execute();
     $stmt_total_payments->bind_result($total_payments);
@@ -37,8 +37,6 @@
     $stmt_total_not_paid->store_result();
     $stmt_total_not_paid->fetch();
 
-    $kurs_dollar = 15722;
-
     function setRupiah($price)
     {
         $result = "Rp".number_format($price, 0, ',', '.');
@@ -48,11 +46,11 @@
 
 <?php include('layouts/header.php'); ?>
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-4 ">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800 text-uppercase fw-bolder">Dashboard</h1>
                     </div>
 
                     <!-- Content Row -->

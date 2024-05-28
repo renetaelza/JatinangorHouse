@@ -2,24 +2,57 @@
 ob_start();
 session_start();
 include('layouts/header.php');
+include('../server/connection.php');
 
 if (!isset($_SESSION['admin_logged_in'])) {
     header('location: login.php');
+    exit();
 }
 
-if (isset($_GET['product_id'])) {
-    $product_id = $_GET['product_id'];
-    $product_name = $_GET['product_name'];
-} else {
-    header('location: products.php');
+$id = $_GET['product_id'];
+$old_image = $_GET['product_image'];
+
+// Fetch product details from the database
+$query = "SELECT product_name FROM products WHERE product_id = $id";
+$result = mysqli_query($conn, $query);
+$product = mysqli_fetch_assoc($result);
+
+if (!$product) {
+    header('location: products.php?fail_update_message=Product not found');
+    exit();
+}
+
+if (isset($_POST['edit_btn'])) {
+    $path = "../img/product/" . basename($_FILES['product_image']['name']);
+    
+    // Delete the old image if it exists
+    $old_image_path = "../img/product/" . $old_image;
+    if (file_exists($old_image_path)) {
+        unlink($old_image_path);
+    }
+
+    // Move the new uploaded file
+    if (move_uploaded_file($_FILES['product_image']['tmp_name'], $path)) {
+        $photo = $_FILES['product_image']['name'];
+        
+        $q = "UPDATE products SET product_image = '$photo' WHERE product_id = $id";
+        if (mysqli_query($conn, $q)) {
+            header('location: products.php?success_update_message=Image product has been updated successfully');
+        } else {
+            header('location: products.php?fail_update_message=Error occurred, try again!');
+        }
+    } else {
+        header('location: products.php?fail_update_message=Error moving the uploaded file');
+    }
+    exit();
 }
 ?>
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid mt-4">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Image</h1>
+    <h1 class="h3 mb-2 text-gray-800 text-uppercase fw-bolder">Edit Image</h1>
     <nav class="mt-4 rounded" aria-label="breadcrumb">
         <ol class="breadcrumb px-3 py-2 rounded mb-4">
             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
@@ -30,29 +63,17 @@ if (isset($_GET['product_id'])) {
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Images</h6>
-        </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <form id="edit-image-form" enctype="multipart/form-data" method="POST" action="update_image.php">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                                <input type="hidden" name="product_name" value="<?php echo $product_name; ?>" />
-                                <label>Image </label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="editImage" name="image" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="editImage">Choose file...</label>
-                                    </div>
-                                </div>
-                            </div>
+                    <form id="edit-image-form" enctype="multipart/form-data" method="POST" action="edit_image.php?product_id=<?php echo $id; ?>&product_image=<?php echo $old_image; ?>">
+                        <div class="mb-3">
+                            <label>Product name : <?php echo $product['product_name']; ?></label>
+                            <input name="product_image" type="file" class="form-control" required>
                         </div>
-                        <div class="m-t-20 text-right">
-                        <a href="products.php" class="btn btn-outline-danger">Cancel <i class="fas fa-undo"></i></a>
-                            <button type="submit" class="btn btn-outline-success submit-btn" name="update_image_btn">Update Image <i class="fas fa-save"></i></button>
+                        <div class="text-right">
+                            <a href="products.php" class="btn btn-outline-danger">Cancel <i class="fas fa-undo"></i></a>
+                            <button type="submit" class="btn btn-outline-success submit-btn" name="edit_btn">Update Image <i class="fas fa-save"></i></button>
                         </div>
                     </form>
                 </div>
