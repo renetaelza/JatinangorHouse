@@ -114,7 +114,7 @@
                             <div class="product__item__text">
                                 <h6><?php echo $row['product_name']; ?></h6>
                                 <p><?php echo $row['product_description'] ?></p>
-                                <h5><?php echo $row['product_price']; ?></h5>
+                                <h5><?php echo number_format($row['product_price'], 0, ',', '.'); ?></h5>
                             </div>
                         </div>
                     </div>
